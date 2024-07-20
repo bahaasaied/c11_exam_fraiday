@@ -1,3 +1,4 @@
+import 'package:c11_exam_fraiday/screens/home_two-screen.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/home_screen.dart';
@@ -13,9 +14,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: HomeScreen.routeName,
+      initialRoute: HomeTwoscreen.routeName,
       routes: {
         HomeScreen.routeName: (context) => HomeScreen(),
+        HomeTwoscreen.routeName: (context) => HomeTwoscreen(),
       },
     );
   }

@@ -1,13 +1,18 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
-import '../Buttons/buttons.dart';
+import '../Widget/buttons.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   static const String routeName = 'HomeScreen';
 
   HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   List<String> imgList = [
     'assets/images/Image Placeholder 1.png',
     'assets/images/Image Placeholder 1 (1).png',
@@ -62,17 +67,17 @@ class HomeScreen extends StatelessWidget {
               width: 500,
               height: 70,
               child: ListView.builder(
-                itemCount: 12,
+                itemCount: labels.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return Buttons(
-                    label: 'Art',
+                    label: labels[index],
                   );
                 },
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(right: 20, left: 24),
+              padding: const EdgeInsets.only(top: 20, right: 20, left: 24),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -90,26 +95,32 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 20,),
-            CarouselSlider(
-              options: CarouselOptions(
-                initialPage: 0,
-                height: 300,
-        
-                enlargeCenterPage: true,
-                enlargeFactor: 0.5,
+            // SizedBox(height: 20,),
+            Center(
+              child: CarouselSlider(
+                options: CarouselOptions(
+                  initialPage: 0,
+                  autoPlay: true,
+                  autoPlayAnimationDuration: Duration(seconds: 2),
+                  height: 340,
+                  viewportFraction: 0.4,
+                  enlargeCenterPage: false,
+                  enlargeFactor: 1,
+                ),
+                items: imgList.map((i) {
+                  return Center(
+                    child: Container(
+                      height: 270,
+                      margin: EdgeInsets.symmetric(horizontal: 5),
+                      child: Image.asset(
+                        i,
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  );
+                }).toList(),
               ),
-        
-              items: imgList.map((i) {
-                return Builder(
-                  builder: (BuildContext context) {
-                    return Image.asset(i);
-                  },
-                );
-              }).toList(),
-        
             ),
-            SizedBox(height: 30,),
             Padding(
               padding: const EdgeInsets.only(right: 20, left: 24),
               child: Row(
@@ -129,21 +140,64 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
+            SizedBox(height: 30,),
 
-            Padding(
-              padding: const EdgeInsets.all(50.0),
-              child: Row(
-                children: [
-                  Image.asset('assets/images/Image Placeholder 2.png'),
-                  SizedBox(width: 10,),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Light Mage'),
-                      Text('Laurie Forest'),
-                    ],
-                  ),
-                ],
+
+            SizedBox(
+              width: 415,
+              height: 200,
+              child: ListView.builder(
+                itemCount: 3,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  return Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(21.0),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            width: 310,
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Image.asset(
+                                    'assets/images/Image Placeholder 2.png'),
+                                SizedBox(
+                                  width: 10,
+                                ),
+
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    SizedBox(height: 10,),
+                                    Text(
+                                      'Light Mage',
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w700),
+                                    ),
+                                    Text(
+                                      'Laurie Forest',
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w300),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+
+
+                        ],
+                      ),
+                    ),
+                  );
+                },
               ),
             ),
           ],
