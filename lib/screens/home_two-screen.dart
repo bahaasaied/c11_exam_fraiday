@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../Widget/CardWidget.dart';
 import '../Widget/Text_card.dart';
 
 class HomeTwoscreen extends StatelessWidget {
@@ -232,26 +231,44 @@ class HomeTwoscreen extends StatelessWidget {
                             width: 5,
                           ),
                           Image.asset('assets/images/arrow_Icon.png'),
-                          SizedBox(height: 20,),
-
+                          SizedBox(
+                            height: 20,
+                          ),
                         ],
-
                       ),
                     ],
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      TextCard(label: 'Relaxation', img: 'assets/images/Frame.png',cardColor: Color(0xffd5d1ee),),
-                      TextCard(label: 'Meditation', img: 'assets/images/Frame (1).png',cardColor: Color(0xfffdf2fa),),
+                      TextCard(
+                        label: 'Relaxation',
+                        img: 'assets/images/Frame.png',
+                        cardColor: Color(0xffd5d1ee),
+                      ),
+                      TextCard(
+                        label: 'Meditation',
+                        img: 'assets/images/Frame (1).png',
+                        cardColor: Color(0xfffdf2fa),
+                      ),
                     ],
                   ),
-                  SizedBox(height: 20,),
+                  SizedBox(
+                    height: 20,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      TextCard(label: 'Beathing', img: 'assets/images/Frame (2).png',cardColor: Color(0xfffffaf5),),
-                      TextCard(label: 'Yoga', img: 'assets/images/Frame (3).png',cardColor: Color(0xfff0f9ff),),
+                      TextCard(
+                        label: 'Beathing',
+                        img: 'assets/images/Frame (2).png',
+                        cardColor: Color(0xfffffaf5),
+                      ),
+                      TextCard(
+                        label: 'Yoga',
+                        img: 'assets/images/Frame (3).png',
+                        cardColor: Color(0xfff0f9ff),
+                      ),
                     ],
                   ),
                 ],
